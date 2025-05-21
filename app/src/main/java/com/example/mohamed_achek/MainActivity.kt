@@ -1,8 +1,5 @@
 package com.example.mohamed_achek
 
-import QuestionScreen
-import ResultScreen
-import ScoreScreen
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
