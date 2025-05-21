@@ -62,3 +62,13 @@ class CountryGameViewModelTest {
         assertTrue(viewModel.isGameOver())
     }
 }
+
+class CountryDataTest {
+    @Test
+    fun countryData_has15UniqueCountriesAndFeatures() {
+        val countries = CountryData.countries
+        assertEquals(15, countries.size)
+        assertEquals(15, countries.map { it.name }.distinct().size)
+        assertEquals(15, countries.map { it.feature }.distinct().size)
+    }
+}
