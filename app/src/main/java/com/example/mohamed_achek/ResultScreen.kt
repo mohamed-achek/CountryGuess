@@ -74,10 +74,12 @@ fun ResultScreen(
                 Spacer(modifier = Modifier.height(16.dp))
                 if (isCorrect) {
                     Text("Country: ${country.name}", style = MaterialTheme.typography.titleMedium)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text("Capital: ${country.capital}", style = MaterialTheme.typography.bodyLarge)
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text("Feature: ${country.feature}", style = MaterialTheme.typography.bodyLarge)
                 } else {
                     Text("The correct answer was: ${country.name}", style = MaterialTheme.typography.titleMedium)
-                    Text("Feature: ${country.feature}", style = MaterialTheme.typography.bodyLarge)
                 }
                 Spacer(modifier = Modifier.height(32.dp))
                 Button(

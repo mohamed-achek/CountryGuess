@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 data class Country(
     val name: String,
     val flagRes: Int,
+    val capital: String,
     val feature: String
 )
 
