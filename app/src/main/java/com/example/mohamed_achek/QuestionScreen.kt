@@ -1,6 +1,5 @@
 package com.example.mohamed_achek
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -31,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mohamed_achek.ui.theme.Mohamed_AchekTheme
 
+// Composable for the question screen where the user guesses the country by its flag
 @Composable
 fun QuestionScreen(
     viewModel: CountryGameViewModel,
@@ -38,6 +38,7 @@ fun QuestionScreen(
 ) {
     val country = viewModel.currentCountry
 
+    // State for the user's answer and dialog visibility
     var answer by remember { mutableStateOf("") }
     var showResultDialog by remember { mutableStateOf(false) }
     var wasCorrect by remember { mutableStateOf(false) }
@@ -63,12 +64,14 @@ fun QuestionScreen(
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // Display question number at the top
                 Text(
                     "Question ${viewModel.questionNumber}/10",
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.displayLarge,
                     color = MaterialTheme.colorScheme.primary
                 )
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(12.dp))
+                // Show the flag image
                 Card(
                     shape = MaterialTheme.shapes.medium,
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -83,12 +86,14 @@ fun QuestionScreen(
                     )
                 }
                 Spacer(modifier = Modifier.height(24.dp))
+                // Prompt for the country name
                 Text(
                     "Which country is this?",
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.height(18.dp))
+                // Input field for the answer
                 OutlinedTextField(
                     value = answer,
                     onValueChange = { answer = it },
@@ -97,6 +102,7 @@ fun QuestionScreen(
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(28.dp))
+                // Submit button
                 Button(
                     onClick = {
                         viewModel.answerCountry(answer)
@@ -113,6 +119,7 @@ fun QuestionScreen(
         }
     }
 
+    // Show a dialog with the result after submitting the answer
     if (showResultDialog) {
         AlertDialog(
             onDismissRequest = {
@@ -143,6 +150,7 @@ fun QuestionScreen(
     }
 }
 
+// Preview for the question screen
 @Preview(showBackground = true)
 @Composable
 fun QuestionScreenPreview() {
@@ -151,3 +159,4 @@ fun QuestionScreenPreview() {
         QuestionScreen(viewModel = viewModel, onAnswer = {})
     }
 }
+

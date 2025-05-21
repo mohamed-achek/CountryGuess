@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mohamed_achek.ui.theme.Mohamed_AchekTheme
 
+// Composable for the score screen, showing the final score and sharing option
 @Composable
 fun ScoreScreen(
     viewModel: CountryGameViewModel,
@@ -50,6 +51,7 @@ fun ScoreScreen(
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // Show game over and score
                 Text("Game Over!", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.primary)
                 Spacer(modifier = Modifier.height(24.dp))
                 Text(
@@ -58,6 +60,7 @@ fun ScoreScreen(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Spacer(modifier = Modifier.height(32.dp))
+                // Restart button
                 Button(
                     onClick = onRestart,
                     shape = MaterialTheme.shapes.medium,
@@ -66,6 +69,7 @@ fun ScoreScreen(
                     Text("Restart", style = MaterialTheme.typography.titleMedium)
                 }
                 Spacer(modifier = Modifier.height(16.dp))
+                // Share score button
                 Button(
                     onClick = {
                         val shareIntent = Intent(Intent.ACTION_SEND).apply {
@@ -89,6 +93,7 @@ fun ScoreScreen(
     }
 }
 
+// Preview for the score screen
 @Preview(showBackground = true)
 @Composable
 fun ScoreScreenPreview() {
@@ -97,3 +102,4 @@ fun ScoreScreenPreview() {
         ScoreScreen(viewModel = viewModel, onRestart = {})
     }
 }
+

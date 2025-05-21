@@ -1,6 +1,5 @@
 package com.example.mohamed_achek
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.example.mohamed_achek.CountryGameViewModel
 import com.example.mohamed_achek.ui.theme.Mohamed_AchekTheme
 
+// Composable for the result screen, showing if the answer was correct or not
 @Composable
 fun ResultScreen(
     viewModel: CountryGameViewModel,
@@ -55,12 +55,14 @@ fun ResultScreen(
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // Show result title
                 Text(
                     if (isCorrect) "Correct!" else "Wrong!",
                     style = MaterialTheme.typography.titleLarge,
                     color = if (isCorrect) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
                 )
                 Spacer(modifier = Modifier.height(16.dp))
+                // Show the flag again
                 Card(
                     shape = MaterialTheme.shapes.medium,
                     elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -75,6 +77,7 @@ fun ResultScreen(
                     )
                 }
                 Spacer(modifier = Modifier.height(16.dp))
+                // Show details if correct, otherwise just the correct answer
                 if (isCorrect) {
                     Text("Country: ${country.name}", style = MaterialTheme.typography.titleMedium)
                     Spacer(modifier = Modifier.height(8.dp))
@@ -85,6 +88,7 @@ fun ResultScreen(
                     Text("The correct answer was: ${country.name}", style = MaterialTheme.typography.titleMedium)
                 }
                 Spacer(modifier = Modifier.height(32.dp))
+                // Button to go to the next question or score
                 Button(
                     onClick = {
                         viewModel.nextQuestion()
@@ -100,6 +104,7 @@ fun ResultScreen(
     }
 }
 
+// Preview for the result screen
 @Preview(showBackground = true)
 @Composable
 fun ResultScreenPreview() {
@@ -108,3 +113,4 @@ fun ResultScreenPreview() {
         ResultScreen(viewModel = viewModel, onNext = {})
     }
 }
+

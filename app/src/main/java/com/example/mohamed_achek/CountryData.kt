@@ -1,6 +1,8 @@
 package com.example.mohamed_achek
 
+// Object holding the list of countries for the game
 object CountryData {
+    // Each country has a name, flag resource, capital, and a unique feature
     val countries = listOf(
         Country("Bhutan", R.drawable.bhutan, "Thimphu", "Measures success with Gross National Happiness instead of GDP"),
         Country("Iceland", R.drawable.iceland, "Reykjavik", "Runs almost entirely on renewable geothermal energy"),
@@ -19,3 +21,4 @@ object CountryData {
         Country("Turkey", R.drawable.turkey, "Ankara", "Straddles two continents: Europe and Asia")
     )
 }
+
