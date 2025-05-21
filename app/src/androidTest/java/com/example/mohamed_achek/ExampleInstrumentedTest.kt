@@ -1,6 +1,6 @@
 package com.example.mohamed_achek
 
-import QuestionScreen
+
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
